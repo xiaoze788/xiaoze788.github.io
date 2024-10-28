@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>加载中...</title>
-      <link rel="stylesheet" href="style.css">
-   </head>
-   <body>
-      <div class="outer"></div>
-      <div class="inner">
-         <span>0%</span>
-      </div>
-      <script>
-         let outer = document.querySelector(".outer");
-         let inner = document.querySelector(".inner");
-         let percent = document.querySelector("span");
-         let count = 0;
-         inner.addEventListener('click', function(){
-           let loading = setInterval(function(){
-             if(count == 100){
+<head>
+   <meta charset="utf-8">
+   <title>加载中...</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="outer"></div>
+   <div class="inner">
+      <span>0%</span>
+   </div>
+   <script>
+      let outer = document.querySelector(".outer");
+      let inner = document.querySelector(".inner");
+      let percent = document.querySelector("span");
+      let count = 0;
+      
+      inner.addEventListener('click', function() {
+         let loading = setInterval(function() {
+            if(count == 100) {
                outer.classList.remove("active-loader");
                outer.classList.add("active-loader-2");
-               clearInterval();
-             }else{
-               count = count + 1;
+               clearInterval(loading);
+               // Redirect after reaching 100%
+               window.location.href = "https://res.paquapp.com/9zAapp/img/2024/0518/1AELIKhbc47eifcfkdgm"; // Replace with the target URL
+            } else {
+               count += 1;
                percent.textContent = count + '%';
                outer.classList.add("active-loader");
-             }
-           },200);
-         });
-      </script>
-   </body>
+            }
+         }, 200);
+      });
+   </script>
+</body>
 </html>
